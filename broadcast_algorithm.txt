@@ -1,0 +1,52 @@
+Broadcast Traversal Algorithm
+
+   Broadcasting a packet ensures that the packet sent reaches all nodes 
+   on the network.  Here we describe the broadcast algorithm used by 
+   ttp2p to achieve this result.
+   
+   Packet preparation at source node.
+   
+      The source node creates a packet and assignes it a globally uniqe 
+      identifier, which is the unique node id with a locally unique 
+      message id concatenated. 
+      
+      After assembling the packet, it is placed on each of the source 
+      node's edges for delivery to neighbors.
+
+   Node handling of an incoming broadcast packet.
+      
+      First, the node examimes the packet to determine if it is already 
+      in the received cache.  If it is in the cache, the packet has 
+      already come through the node and it can be dropped.  No further 
+      processing is necessary on the packet.
+      
+      If the packet is new, i.e. it is not in the received cache, then 
+      a copy is sent to each edge with the exception of the edge where 
+      the node was received.
+      
+      After the broadcast routing is done, the packet is passed to the 
+      node owner for post-route processing.
+      
+   Efficiency of the algorithm.
+
+      A broadcast message send on a network of N nodes and E edges will 
+      require 2E-N+1 network hops to deliver the message to all nodes. 
+   
+      Here's a table for a mesh network:
+   
+      N = number of nodes
+      m = square root of number of nodes
+   
+      Nodes Edges    Hops
+      N     2(N-m)   3N-4m+1
+      --------------------------------
+      1     0        0
+      4     4        5
+      9     12       16
+      16    24       33
+      25    40       56
+      36    60       85
+      49    84       120
+      64    112      161
+      81
+      

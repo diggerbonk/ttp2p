@@ -1,0 +1,17 @@
+//
+// File     : $Id$
+// Author   : Trent McNair
+
+#ifndef __tt_packet_cache_h
+#define __tt_packet_cache_h
+
+public TTPacketCache {
+
+public:
+
+   TTPacketCache();
+   ~TTPacketCache();
+   
+};
+
+#endif // __tt_packet_cache_h

@@ -1,0 +1,42 @@
+Terms
+
+   GUMD: Globally Unique Message ID.  Uniquely identifies a packet on 
+      the network.  The GUMD is created by combining a packet's source 
+      node id with a unique id genertate by the node.  The unique 
+      number is incremented by the source node each time a packet is 
+      sent.
+      
+Node Rights
+
+    * Any conformant node may connect to the network.
+    * Nodes may have as many as 256 concurrent connections to the 
+      network, but must have 6 or less outgoing connections.
+    * Nodes must not connect to themselves.
+    * Nodes should accept connections from other nodes. 
+
+Node Responsibilities
+
+    * Nodes must not accept connections from themselves.
+    * Nodes must not connect to another node more than once.
+    * Nodes must not accept more than one connection from another node.
+    * Nodes must assign a locally unique numerical id to each packet 
+      sent on the network. Preferably, this id should be incremented. 
+      The combination of the locally unique id and the node's network 
+      id form a globally unique message id - GUMD.
+    * Nodes must drop all packets with duplicate GUMD's.
+    * When a node accepts a connection, it must tell every other node 
+      it is connected to.
+    * When a node is told that another node has connected to the 
+      network, it must tell every other node that it is connected to.
+    * A node must not send packets routed to itself.
+    * A node must not accept packets from itself.
+    * Nodes must not allow connections from non-conformant nodes.
+    * When a node gets a new connection, it should forward a list of up 
+      to 10 other available nodes to the newly-connected node.
+    * Nodes must never route a packet to the packets source channel, 
+      except when converting a peer packet to a discovery packet.
+    * On recieving a packet, a node must increment it's hops by one.
+    * Nodes must not add themselves to their list of available nodes.
+    * Nodes should allow no more than 20 seconds for connecting nodes 
+      to complete a login handshake.
+    * Nodes must keep a cache of all GUMD's that are not peer packets. 

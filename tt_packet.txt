@@ -1,0 +1,29 @@
+What is a TTPacket?
+
+All members of the TTP2P network communicate via TTPackets, which 
+are a collection of name / value pairs.  How messages are transported 
+between members is not important, so long as the information contained 
+in the TTPacket remains in tact.  This leaves the decision of transport 
+protocol up to whatever is best for the working environment of the 
+network member (XML, proprietary binary protocol, carrier pidgeon).
+
+So, as we've explained, a TTPacket is simply a holder of a set of 
+name / value pairs.  The meaning of each packet is determined by the 
+contents of the set.  There are a few NVP's that each packet are required 
+to define in order to be valid, these are:
+
+   NAME              VALUE
+
+   category          High level category classification.  Current 
+                     classifications recognized by the network are: 
+                     internal, local, peer, discover, and broadcast.
+
+   type              What type of packet this is.  Reserved values are 
+                     login, welcome, full, already_connected, node_list, 
+                     diconnect, connected, connect_failed, bye, and 
+                     request_node_info
+   
+   to                network id of the user that this message will be 
+                     routed to
+
+   from              network id of the user that sent the packet
