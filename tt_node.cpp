@@ -5,6 +5,7 @@
 // TTNode implements the basic functionality of a node on the TTP2P network.
 
 #include <iostream>
+#include <cstring>
 #include <stdlib.h>
 
 #include "ttools/tt_hashtable.h"

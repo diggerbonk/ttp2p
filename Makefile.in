@@ -12,7 +12,7 @@ INCLUDES = -I../
 #
 # LIBS
 
-THREAD_LIB = -lpthread
+THREAD_LIB = -lpthread -pthread
 LIBS = $(TT_THREAD_LIB) ../ttools/libtt.a
 
 #

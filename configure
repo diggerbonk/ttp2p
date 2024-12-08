@@ -34,7 +34,7 @@ echo $IMVERSION > version.txt
 # Find the threadlibs - right now does nothing, we'll improve 
 # on it later when needed.
 
-THREADLIB="-lpthread"
+THREADLIB="-lpthread -pthread"
 
 #
 # Create the cflags

@@ -1,4 +1,4 @@
-
+#include <cstring>
 #include <iostream>
 #include <stdlib.h>
 #include <sys/wait.h>
